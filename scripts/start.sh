@@ -3,16 +3,16 @@
 command=$1
 
 if [[ "$command" == "web" ]]; then
-  ./concourse web \
+  /root/concourse web \
     --basic-auth-username $CONCOURSE_LOGIN \
     --basic-auth-password $CONCOURSE_PASSWORD \
-    --session-signing-key ./keys/session_signing_key \
-    --tsa-host-key ./keys/host_key \
-    --tsa-authorized-keys ./keys/authorized_worker_keys \
-    --external-url  $EXTERNAL_URL \
+    --session-signing-key /root/keys/session_signing_key \
+    --tsa-host-key /root/keys/host_key \
+    --tsa-authorized-keys /root/keys/authorized_worker_keys \
+    --external-url  $CONCOURSE_EXTERNAL_URL \
     --postgres-data-source postgres://ceuser:cepassword@db:5432/concourse?sslmode=disable
 elif [[ "$command" == "worker" ]]; then
-  sudo ./concourse worker \
+  sudo /root/concourse worker \
     --work-dir /opt/concourse/worker \
     --tsa-host web \
     --tsa-public-key /root/keys/host_key.pub \

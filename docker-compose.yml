@@ -3,16 +3,6 @@ db:
   dockerfile: Dockerfile-db
   volumes:
     - /database
-worker:
-  build: .
-  dockerfile: Dockerfile-concourse
-  privileged: true
-  links:
-    - web
-    - db
-  volumes:
-    - /opt/concourse/worker
-  command: /root/scripts/start.sh worker
 web:
   build: .
   dockerfile: Dockerfile-concourse
@@ -23,6 +13,16 @@ web:
   ports:
     - "8080:8080"
   environment:
-    - CONCOURSE_LOGIN=${CONCOURSE_LOGIN}
-    - CONCOURSE_LOGIN=${CONCOURSE_PASSWORD}
-    - EXTERNAL_URL=${EXTERNAL_URL}
+    CONCOURSE_LOGIN: '${CONCOURSE_LOGIN}'
+    CONCOURSE_PASSWORD: '${CONCOURSE_PASSWORD}'
+    CONCOURSE_EXTERNAL_URL: '${CONCOURSE_EXTERNAL_URL}'
+worker:
+  build: .
+  dockerfile: Dockerfile-concourse
+  privileged: true
+  links:
+    - web
+    - db
+  volumes:
+    - /opt/concourse/worker
+  command: /root/scripts/start.sh worker

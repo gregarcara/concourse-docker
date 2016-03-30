@@ -11,8 +11,8 @@ Run generate-keys.sh to create keys to be used by the web host and workers.
 
 ### Environment variables
 
-* `EXTERNAL_URL` - The URL to access concourse web at. Usually [http://192.168.99.100:8080](http://192.168.99.100:8080)
-* `CONCOURSE_LOGIN` - Username to use for concourse basic auth. 
+* `CONCOURSE_EXTERNAL_URL` - The URL to access concourse web at. Usually [http://192.168.99.100:8080](http://192.168.99.100:8080)
+* `CONCOURSE_LOGIN` - Username to use for concourse basic auth.
 * `CONCOURSE_PASSWORD` = Password to use for concourse basic auth.
 
 ### Build docker images and run
@@ -23,6 +23,6 @@ docker-compose build
 docker-compose up
 ```
 
-Open the EXTERNAL_URL specified above ([http://192.168.99.100:8080](http://192.168.99.100:8080)) and start using concourse.
+Open the CONCOURSE_EXTERNAL_URL specified above ([http://192.168.99.100:8080](http://192.168.99.100:8080)) and start using concourse.
 
 See [Using Concourse](https://concourse.ci/using-concourse.html) to get started.
