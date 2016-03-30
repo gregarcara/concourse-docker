@@ -1,0 +1,20 @@
+db:
+  image: gregoryarcara/concourse-db
+web:
+  image: gregoryarcara/concourse-bin
+  links:
+    - db
+  command: /root/scripts/start.sh web
+  ports:
+    - "8080:8080"
+  environment:
+    CONCOURSE_LOGIN: 'concourse'
+    CONCOURSE_PASSWORD: 'password'
+    CONCOURSE_EXTERNAL_URL: 'http://192.168.99.100:8080/'
+worker:
+  image: gregoryarcara/concourse-bin
+  privileged: true
+  links:
+    - web
+    - db
+  command: /root/scripts/start.sh worker
