@@ -9,7 +9,9 @@ See [here](https://github.com/concourse/bin) for more details.
 
 From the quick-start folder run docker-compose up then go to [http://192.168.99.100:8080](http://192.168.99.100:8080)
 
-You can edit the compose file to change the URL and login/password as needed. Defaults are the following:
+You can edit the compose file to change the URL and login/password as needed.
+
+Defaults are the following:
 
 * `URL` [http://192.168.99.100:8080](http://192.168.99.100:8080)
 * `login` concourse
