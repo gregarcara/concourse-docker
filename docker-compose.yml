@@ -1,0 +1,28 @@
+db:
+  build: .
+  dockerfile: Dockerfile-db
+  volumes:
+    - /database
+worker:
+  build: .
+  dockerfile: Dockerfile-concourse
+  privileged: true
+  links:
+    - web
+    - db
+  volumes:
+    - /opt/concourse/worker
+  command: /root/scripts/start.sh worker
+web:
+  build: .
+  dockerfile: Dockerfile-concourse
+  privileged: true
+  links:
+    - db
+  command: /root/scripts/start.sh web
+  ports:
+    - "8080:8080"
+  environment:
+    - CONCOURSE_LOGIN=${CONCOURSE_LOGIN}
+    - CONCOURSE_LOGIN=${CONCOURSE_PASSWORD}
+    - EXTERNAL_URL=${EXTERNAL_URL}
