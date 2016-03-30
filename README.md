@@ -5,6 +5,16 @@ See [here](https://github.com/concourse/bin) for more details.
 
 ## Usage
 
+### Quick-start
+
+From the quick-start folder run docker-compose up then go to [http://192.168.99.100:8080](http://192.168.99.100:8080)
+
+You can edit the compose file to change the URL and login/password as needed. Defaults are the following:
+
+* `URL` [http://192.168.99.100:8080](http://192.168.99.100:8080)
+* `login` concourse
+* `password` password
+
 ### Generate private keys
 
 Run generate-keys.sh to create keys to be used by the web host and workers.
