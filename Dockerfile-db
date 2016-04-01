@@ -1,5 +1,0 @@
-FROM postgres:9.5
-ENV POSTGRES_DB concourse
-ENV  POSTGRES_PASSWORD concourse_pass
-ENV  POSTGRES_USER concourse_user
-ENV  PGDATA /database

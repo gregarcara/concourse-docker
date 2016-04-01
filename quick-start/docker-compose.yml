@@ -1,9 +1,14 @@
-db:
-  image: gregoryarcara/concourse-db
-web:
+concourse-db:
+  image: postgres:9.5
+  environment:
+    POSTGRES_DB: concourse
+    POSTGRES_PASSWORD: concourse_pass
+    POSTGRES_USER: concourse_user
+    PGDATA: /database
+concourse-web:
   image: gregoryarcara/concourse-bin
   links:
-    - db
+    - concourse-db
   command: /root/scripts/start.sh web
   ports:
     - "8080:8080"
@@ -11,10 +16,10 @@ web:
     CONCOURSE_LOGIN: 'concourse'
     CONCOURSE_PASSWORD: 'password'
     CONCOURSE_EXTERNAL_URL: 'http://192.168.99.100:8080/'
-worker:
+concourse-worker:
   image: gregoryarcara/concourse-bin
   privileged: true
   links:
-    - web
-    - db
+    - concourse-web
+    - concourse-db
   command: /root/scripts/start.sh worker

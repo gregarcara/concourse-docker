@@ -10,11 +10,11 @@ if [[ "$command" == "web" ]]; then
     --tsa-host-key /root/keys/host_key \
     --tsa-authorized-keys /root/keys/authorized_worker_keys \
     --external-url  $CONCOURSE_EXTERNAL_URL \
-    --postgres-data-source postgres://concourse_user:concourse_pass@db:5432/concourse?sslmode=disable
+    --postgres-data-source postgres://concourse_user:concourse_pass@concourse-db:5432/concourse?sslmode=disable
 elif [[ "$command" == "worker" ]]; then
-  exec sudo /root/concourse worker \
+  exec /root/concourse worker \
     --work-dir /opt/concourse/worker \
-    --tsa-host web \
+    --tsa-host concourse-web \
     --tsa-public-key /root/keys/host_key.pub \
     --tsa-worker-private-key /root/keys/worker_key
 else

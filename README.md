@@ -19,11 +19,10 @@ Run generate-keys.sh to create keys to be used by the web host and workers.
 * `CONCOURSE_LOGIN` - Username to use for concourse basic auth.
 * `CONCOURSE_PASSWORD` = Password to use for concourse basic auth.
 
-### Build docker images and run
+### Start Concourse
 
 Run:
 ```
-docker-compose build
 docker-compose up
 ```
 
