@@ -1,7 +1,0 @@
-FROM ubuntu:14.04
-RUN apt-get update
-RUN apt-get install -y iptables ca-certificates aufs-tools
-ADD ./keys /root/keys
-ADD ./scripts /root/scripts
-ADD https://github.com/concourse/concourse/releases/download/v1.0.0/concourse_linux_amd64 /root/concourse
-RUN chmod +x /root/concourse && chmod +x /root/scripts/* && chmod 600 /root/keys/*

@@ -1,14 +1,14 @@
-db:
-  build: .
-  dockerfile: Dockerfile-db
-  volumes:
-    - /database
-web:
-  build: .
-  dockerfile: Dockerfile-concourse
-  privileged: true
+concourse-db:
+  image: postgres:9.5
+  environment:
+    POSTGRES_DB: concourse
+    POSTGRES_PASSWORD: concourse_pass
+    POSTGRES_USER: concourse_user
+    PGDATA: /database
+concourse-web:
+  image: gregoryarcara/concourse-bin
   links:
-    - db
+    - concourse-db
   command: /root/scripts/start.sh web
   ports:
     - "8080:8080"
@@ -16,13 +16,10 @@ web:
     CONCOURSE_LOGIN: '${CONCOURSE_LOGIN}'
     CONCOURSE_PASSWORD: '${CONCOURSE_PASSWORD}'
     CONCOURSE_EXTERNAL_URL: '${CONCOURSE_EXTERNAL_URL}'
-worker:
-  build: .
-  dockerfile: Dockerfile-concourse
+concourse-worker:
+  image: gregoryarcara/concourse-bin
   privileged: true
   links:
-    - web
-    - db
-  volumes:
-    - /opt/concourse/worker
+    - concourse-web
+    - concourse-db
   command: /root/scripts/start.sh worker
