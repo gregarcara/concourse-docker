@@ -5,4 +5,4 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ADD ./keys /root/keys
 ADD ./scripts /root/scripts
-RUN wget -q https://github.com/concourse/concourse/releases/download/v1.0.0/concourse_linux_amd64 -O /root/concourse
+RUN wget -q https://github.com/concourse/concourse/releases/download/v1.0.0/concourse_linux_amd64 -O /root/concourse && chmod +x /root/concourse
