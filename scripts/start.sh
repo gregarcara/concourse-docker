@@ -12,7 +12,7 @@ if [[ "$command" == "web" ]]; then
     --external-url  $CONCOURSE_EXTERNAL_URL \
     --postgres-data-source postgres://concourse_user:concourse_pass@concourse-db:5432/concourse?sslmode=disable
 elif [[ "$command" == "worker" ]]; then
-  exec /root/concourse worker \
+  /usr/local/bin/dumb-init /root/concourse worker \
     --work-dir /opt/concourse/worker \
     --tsa-host concourse-web \
     --tsa-public-key /root/keys/host_key.pub \
