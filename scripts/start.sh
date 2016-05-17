@@ -3,7 +3,7 @@
 command=$1
 
 if [[ "$command" == "web" ]]; then
-  exec /root/concourse web \
+  /usr/local/bin/dumb-init /root/concourse web \
     --basic-auth-username $CONCOURSE_LOGIN \
     --basic-auth-password $CONCOURSE_PASSWORD \
     --session-signing-key /root/keys/session_signing_key \
