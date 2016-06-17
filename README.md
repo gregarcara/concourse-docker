@@ -1,5 +1,7 @@
 # Concourse Docker
 
+**Running 1.3.1**
+
 Create [Docker](https://www.docker.com/) images to run [Concourse](http://concourse.ci) in.
 See [here](https://github.com/concourse/bin) for more details.
 
