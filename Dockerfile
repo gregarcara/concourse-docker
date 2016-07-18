@@ -4,7 +4,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     wget -q https://github.com/concourse/concourse/releases/download/v1.4.1/concourse_linux_amd64 -O /root/concourse && chmod +x /root/concourse && \
-    wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.0.2/dumb-init_1.0.2_amd64 && \
+    wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.1.1/dumb-init_1.1.1_amd64 && \
     chmod +x /usr/local/bin/dumb-init && \
     apt-get remove wget -y && apt-get autoremove -y && \
     apt-get clean
