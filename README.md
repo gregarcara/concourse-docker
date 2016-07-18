@@ -1,9 +1,12 @@
 # Concourse Docker
 
-**Running 1.3.1**
+**Running 1.4.1**
 
 Create [Docker](https://www.docker.com/) images to run [Concourse](http://concourse.ci) in.
+
 See [here](https://github.com/concourse/bin) for more details.
+
+See [Standalone Binaries](http://concourse.ci/binaries.html) for binary details.
 
 ## Usage
 
@@ -17,7 +20,7 @@ Run generate-keys.sh to create keys to be used by the web host and workers.
 
 ### Environment variables
 
-* `CONCOURSE_EXTERNAL_URL` - The URL to access concourse web at. Usually [http://192.168.99.100:8080](http://192.168.99.100:8080)
+* `CONCOURSE_EXTERNAL_URL` - The URL to access concourse web at. Usually [http://192.168.99.100:8080](http://192.168.99.100:8080) or [http://localhost:8080](http://localhost:8080)
 * `CONCOURSE_LOGIN` - Username to use for concourse basic auth.
 * `CONCOURSE_PASSWORD` = Password to use for concourse basic auth.
 
