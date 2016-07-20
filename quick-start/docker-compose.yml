@@ -6,7 +6,7 @@ concourse-db:
     POSTGRES_USER: concourse_user
     PGDATA: /database
 concourse-web:
-  image: gregoryarcara/concourse-bin:1.4.1
+  image: gregoryarcara/concourse-bin:1.5
   links:
     - concourse-db
   command: /root/scripts/start.sh web
@@ -17,7 +17,7 @@ concourse-web:
     CONCOURSE_PASSWORD: 'password'
     CONCOURSE_EXTERNAL_URL: 'http://192.168.99.100:8080/'
 concourse-worker:
-  image: gregoryarcara/concourse-bin:1.4.1
+  image: gregoryarcara/concourse-bin:1.5
   privileged: true
   links:
     - concourse-web
