@@ -1,5 +1,8 @@
 # Concourse Docker
 
+# *Deprecated*
+See [the new official image](https://github.com/concourse/concourse-docker) for the latest.
+
 **Running 1.4.1**
 
 Create [Docker](https://www.docker.com/) images to run [Concourse](http://concourse.ci) in.
